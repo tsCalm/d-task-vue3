@@ -1,11 +1,11 @@
-import { User } from "./User";
+import { IUser } from "./User";
 
-export interface IMember {
+export interface ITeamTag {
   id: number;
   createdAt: Date;
   updatedAt: Date;
   title: string;
   color?: string;
-  users: User[];
+  users: IUser[];
   // card: Card[];
 }
