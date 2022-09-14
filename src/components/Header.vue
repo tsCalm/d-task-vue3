@@ -1,12 +1,29 @@
 <template>
   <header id="header">
     <div class="title">BOARD</div>
-    <div class="option">ICON</div>
+    <div class="option">
+      <Icon :name="'search'" />
+    </div>
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script>
+import Icon from "@/components/basic/Icon";
+export default {
+  components: {
+    Icon,
+  },
+  data() {
+    return {
+      image:
+        '<img svg-inline svg-sprite alt="bell icon" src="@/assets/icons/icon_bell.svg"  />',
+    };
+  },
+};
+</script>
 <style lang="scss" scoped>
+@import "@/style";
+
 #header {
   width: 100%;
   height: 100%;
@@ -19,6 +36,7 @@
   & .title {
     font-size: 16;
     font-weight: bold;
+    color: var(--color-primary);
   }
 }
 </style>

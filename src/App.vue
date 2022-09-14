@@ -1,7 +1,8 @@
 <template>
   <router-view />
 </template>
-<style>
+<style lang="scss">
+@import "@/style";
 * {
   margin: 0;
   padding: 0;
