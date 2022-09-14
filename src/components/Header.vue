@@ -8,8 +8,11 @@
 <script setup lang="ts"></script>
 <style scoped>
 #header {
+  width: 100%;
+  height: 100%;
+  max-height: 80px;
   border: 1px solid red;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 </style>

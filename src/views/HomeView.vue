@@ -1,70 +1,40 @@
 <template>
   <div class="home">
-    <Header />
+    <SideBar />
+    <Container col>
+      <Header />
+      <Container row>
+        <Main />
+        <Aside />
+      </Container>
+    </Container>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import Header from "@/components/Header.vue"; // @ is an alias to /src
+import SideBar from "@/components/SideBar.vue";
+import Container from "@/components/Container.vue";
+import Aside from "@/components/Aside.vue";
+import Main from "@/components/Main.vue";
 
 export default defineComponent({
   name: "HomeView",
   components: {
     // HelloWorld,
     Header,
+    SideBar,
+    Container,
+    Aside,
+    Main,
   },
 });
 </script>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  flex-shrink: 0;
-}
-:root {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  cursor: default;
-  line-height: 1.5;
-  overflow-wrap: break-word;
-  word-break: break-word;
-  tab-size: 4;
-}
-html,
-body {
+.home {
+  width: 100%;
   height: 100%;
-  font-family: "Pretendard", sans-serif;
-  color: var(--color-gray-100);
-}
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-button {
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-a {
-  text-decoration: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-ul,
-li {
-  list-style: none;
+  display: flex;
 }
 </style>
