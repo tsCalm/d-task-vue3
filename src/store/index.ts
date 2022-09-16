@@ -1,14 +1,7 @@
-import { createStore } from 'vuex'
-
+import { createStore } from "vuex";
+import HeaderModule from "./header.ts";
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
-  }
-})
+    HeaderModule,
+  },
+});
