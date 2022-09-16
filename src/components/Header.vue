@@ -3,7 +3,12 @@
     <div class="title">BOARD</div>
     <ul class="svg-container">
       <li class="search">
-        <Input name="search" />
+        <Input
+          name="search"
+          :isFocus="isSearchMode"
+          :class="{ 'input-wrap': true, 'input-focus': isSearchMode }"
+          @iconClick="SET_SEARCH_MODE(!isSearchMode)"
+        />
       </li>
       <li v-for="name in iconNames">
         <Icon :name="name" />
@@ -16,6 +21,7 @@
 <script>
 import Icon from "@/components/basic/Icon";
 import Input from "@/components/basic/Input.vue";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -26,6 +32,12 @@ export default {
     return {
       iconNames: ["bell", "profile"],
     };
+  },
+  computed: {
+    ...mapGetters(["isSearchMode"]),
+  },
+  methods: {
+    ...mapMutations(["SET_SEARCH_MODE"]),
   },
 };
 </script>
@@ -52,6 +64,20 @@ export default {
     width: 100%;
     max-width: 316px;
     height: 56px;
+    & > .input-wrap {
+      border: 1px solid var(--color-white);
+      border-radius: 5px;
+      width: 100%;
+      height: 56px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    & > .input-focus {
+      border: 1px solid var(--color-primary);
+    }
   }
   & .svg-container {
     width: 100%;
