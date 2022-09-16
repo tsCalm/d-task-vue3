@@ -1,3 +1,18 @@
 .bold {
   font-weight: bold;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.dot {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $dot-sm;
+  height: $dot-sm;
+  background: var(--color-red);
+  border-radius: 50%;
+}

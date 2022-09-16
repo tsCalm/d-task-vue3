@@ -1,22 +1,30 @@
 <template>
   <header id="header">
     <div class="title">BOARD</div>
-    <div class="option">
-      <Icon :name="'search'" />
-    </div>
+    <ul class="svg-container">
+      <li class="search">
+        <Input name="search" />
+      </li>
+      <li v-for="name in iconNames">
+        <Icon :name="name" />
+        <div v-if="name === 'bell'" class="dot"></div>
+      </li>
+    </ul>
   </header>
 </template>
 
 <script>
 import Icon from "@/components/basic/Icon";
+import Input from "@/components/basic/Input.vue";
+
 export default {
   components: {
     Icon,
+    Input,
   },
   data() {
     return {
-      image:
-        '<img svg-inline svg-sprite alt="bell icon" src="@/assets/icons/icon_bell.svg"  />',
+      iconNames: ["bell", "profile"],
     };
   },
 };
@@ -28,7 +36,7 @@ export default {
   width: 100%;
   height: 100%;
   max-height: 80px;
-  padding: 16px 32px;
+  padding: 16px 0 16px 32px;
   border: 1px solid red;
   display: flex;
   align-items: center;
@@ -37,6 +45,26 @@ export default {
     font-size: 16;
     font-weight: bold;
     color: var(--color-primary);
+  }
+  & .search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 316px;
+    height: 56px;
+  }
+  & .svg-container {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    align-items: center;
+    & > li {
+      position: relative;
+      margin-right: 16px;
+    }
+    li:last-child {
+      margin-left: 16px;
+    }
   }
 }
 </style>

@@ -4,6 +4,7 @@
 <template>
   <img
     v-if="name === 'search'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -11,6 +12,7 @@
   />
   <img
     v-else-if="name === 'chevron-down'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -18,6 +20,7 @@
   />
   <img
     v-else-if="name === 'chevron-up'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -25,6 +28,7 @@
   />
   <img
     v-else-if="name === 'close'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -32,6 +36,7 @@
   />
   <img
     v-else-if="name === 'empty'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -39,6 +44,7 @@
   />
   <img
     v-else-if="name === 'folder'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -46,6 +52,7 @@
   />
   <img
     v-else-if="name === 'login-bg-bottom'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -53,6 +60,7 @@
   />
   <img
     v-else-if="name === 'login-bg-top'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -60,6 +68,7 @@
   />
   <img
     v-else-if="name === 'logo'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -67,6 +76,7 @@
   />
   <img
     v-else-if="name === 'logout'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -74,6 +84,7 @@
   />
   <img
     v-else-if="name === 'profile'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -81,6 +92,7 @@
   />
   <img
     v-else-if="name === 'send'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -88,6 +100,7 @@
   />
   <img
     v-else-if="name === 'twitter'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
@@ -95,10 +108,19 @@
   />
   <img
     v-else-if="name === 'user-group'"
+    class="cursor-pointer"
     svg-inline
     svg-sprite
     alt="Vue logo"
     src="../../assets/icons/icon_user-group.svg"
+  />
+  <img
+    v-else-if="name === 'bell'"
+    class="cursor-pointer"
+    svg-inline
+    svg-sprite
+    alt="Vue logo"
+    src="../../assets/icons/icon_bell.svg"
   />
 </template>
 <script>
@@ -111,4 +133,6 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style lang="scss" scoped>
+@import "@/style";
+</style>
