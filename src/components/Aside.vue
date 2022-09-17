@@ -9,9 +9,9 @@
 import Chat from "./aside/Chat.vue";
 import Search from "./aside/Search.vue";
 import MyPage from "./aside/MyPage.vue";
-import { mapGetters } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+const { mapGetters } = createNamespacedHelpers("header");
 import { AsideName } from "@/common/enum.type";
-
 export default {
   components: {
     Chat,
