@@ -5,6 +5,8 @@
       class="input-wrap__input"
       type="text"
       ref="input"
+      v-model="keyword"
+      @input="inputEvent"
     />
     <Icon class="input-wrap__icon" v-if="name" :name="name" @click="onClick" />
   </div>
@@ -23,6 +25,13 @@ export default {
       required: false,
       default: false,
     },
+    keyword: {
+      type: String,
+      required: true,
+      default: () => {
+        return "";
+      },
+    },
   },
   components: {
     Icon,
@@ -37,6 +46,9 @@ export default {
   methods: {
     onClick() {
       this.$emit("iconClick");
+    },
+    inputEvent(event) {
+      this.$emit("updateKeyword", event.target.value);
     },
   },
 };

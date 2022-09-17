@@ -8,6 +8,7 @@
           :isFocus="isSearchMode"
           :class="{ 'input-wrap': true, 'input-focus': isSearchMode }"
           @iconClick="SET_SEARCH_MODE(!isSearchMode)"
+          @updateKeyword="SET_SEARCH_KEYWORD"
         />
       </li>
       <li v-for="name in iconNames">
@@ -37,7 +38,7 @@ export default {
     ...mapGetters(["isSearchMode"]),
   },
   methods: {
-    ...mapMutations(["SET_SEARCH_MODE"]),
+    ...mapMutations(["SET_SEARCH_MODE", "SET_SEARCH_KEYWORD"]),
   },
 };
 </script>
