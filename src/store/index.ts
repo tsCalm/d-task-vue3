@@ -1,7 +1,9 @@
 import { createStore } from "vuex";
-import HeaderModule from "./header.ts";
+import HeaderModule from "./header";
+import AsideModule from "./aside";
 export default createStore({
   modules: {
-    HeaderModule,
+    header: HeaderModule,
+    aside: AsideModule,
   },
 });

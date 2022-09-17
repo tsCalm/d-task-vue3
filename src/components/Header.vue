@@ -24,9 +24,10 @@
 <script>
 import Icon from "@/components/basic/Icon";
 import Input from "@/components/basic/Input.vue";
-import { mapGetters, mapMutations, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
 import { AsideName } from "@/common/enum.type";
-
+const { mapGetters, mapMutations, mapActions } =
+  createNamespacedHelpers("header");
 export default {
   components: {
     Icon,
