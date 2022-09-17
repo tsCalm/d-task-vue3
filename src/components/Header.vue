@@ -6,9 +6,11 @@
         <Input
           name="search"
           :isFocus="isSearchMode"
+          :keyword="keyword"
           :class="{ 'input-wrap': true, 'input-focus': isSearchMode }"
           @iconClick="SET_SEARCH_MODE(!isSearchMode)"
           @updateKeyword="SET_SEARCH_KEYWORD"
+          @keyupEnter="search(keyword)"
         />
       </li>
       <li v-for="name in iconNames">
@@ -22,7 +24,7 @@
 <script>
 import Icon from "@/components/basic/Icon";
 import Input from "@/components/basic/Input.vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   components: {
@@ -34,11 +36,15 @@ export default {
       iconNames: ["bell", "profile"],
     };
   },
+  mounted() {
+    console.log(this.keyword);
+  },
   computed: {
-    ...mapGetters(["isSearchMode"]),
+    ...mapGetters(["isSearchMode", "keyword"]),
   },
   methods: {
     ...mapMutations(["SET_SEARCH_MODE", "SET_SEARCH_KEYWORD"]),
+    ...mapActions(["search"]),
   },
 };
 </script>

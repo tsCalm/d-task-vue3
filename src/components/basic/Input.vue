@@ -1,4 +1,8 @@
 <template>
+  <!--
+    keypress 이벤트의 경우 키를 누른 상태로 가만히 있으면 계속 이벤트 발생
+    keydown 이벤트의 경우 누른 상태로 키보드에서 손을 때야 이벤트 발생
+  -->
   <div>
     <input
       :disabled="!isFocus"
@@ -7,6 +11,7 @@
       ref="input"
       v-model="keyword"
       @input="inputEvent"
+      @keyup.enter="keyupEnter"
     />
     <Icon class="input-wrap__icon" v-if="name" :name="name" @click="onClick" />
   </div>
@@ -49,6 +54,10 @@ export default {
     },
     inputEvent(event) {
       this.$emit("updateKeyword", event.target.value);
+    },
+    keyupEnter(event) {
+      // props에서 default값을 ""로 잡았기 때문에 아래는 안전하다
+      if (this.keyword.trim()) this.$emit("keyupEnter");
     },
   },
 };
