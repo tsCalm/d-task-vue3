@@ -1,10 +1,10 @@
 <template>
   <div>
     <input
+      :disabled="!isFocus"
       class="input-wrap__input"
       type="text"
-      ref="cursor"
-      :disabled="!isFocus"
+      ref="input"
     />
     <Icon class="input-wrap__icon" v-if="name" :name="name" @click="onClick" />
   </div>
@@ -27,13 +27,12 @@ export default {
   components: {
     Icon,
   },
-  watch: {
-    isFocus(newData, oldData) {
-      if (!newData) {
-        console.log(newData);
-        this.$refs.cursor.focus();
-      }
-    },
+  beforeUpdate() {
+    if (this.isFocus) {
+      // template에 미리 disabled처리가 된 이후 focus 함수가 실행되어 focus함수가 작동하지 않는것 처럼 보임
+      this.$refs.input.disabled = !this.isFocus;
+      this.$refs.input.focus();
+    }
   },
   methods: {
     onClick() {
