@@ -3,7 +3,7 @@
     keypress 이벤트의 경우 키를 누른 상태로 가만히 있으면 계속 이벤트 발생
     keydown 이벤트의 경우 누른 상태로 키보드에서 손을 때야 이벤트 발생
   -->
-  <div>
+  <div @click="this.$refs.input.focus()">
     <input
       :disabled="!isFocus"
       class="input-wrap__input"

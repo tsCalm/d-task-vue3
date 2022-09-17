@@ -11,3 +11,9 @@ export enum AlarmType {
   MOVE_DONE = "MOVE_DONE",
   CREATE_COMMENT = "CREATE_COMMENT",
 }
+
+export enum AsideName {
+  CHAT = "CHAT",
+  SEARCH = "SEARCH",
+  MYPAGE = "MYPAGE",
+}

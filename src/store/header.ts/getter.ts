@@ -7,4 +7,7 @@ export const getters = {
   keyword: (state: stateType) => {
     return state.keyword;
   },
+  currentAside: (state: stateType) => {
+    return state.asideName;
+  },
 };

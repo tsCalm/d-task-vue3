@@ -13,7 +13,7 @@
           @keyupEnter="search(keyword)"
         />
       </li>
-      <li v-for="name in iconNames">
+      <li v-for="name in iconNames" @click="changeAside(name)">
         <Icon :name="name" />
         <div v-if="name === 'bell'" class="dot"></div>
       </li>
@@ -25,6 +25,7 @@
 import Icon from "@/components/basic/Icon";
 import Input from "@/components/basic/Input.vue";
 import { mapGetters, mapMutations, mapActions } from "vuex";
+import { AsideName } from "@/common/enum.type";
 
 export default {
   components: {
@@ -43,8 +44,20 @@ export default {
     ...mapGetters(["isSearchMode", "keyword"]),
   },
   methods: {
-    ...mapMutations(["SET_SEARCH_MODE", "SET_SEARCH_KEYWORD"]),
+    ...mapMutations([
+      "SET_SEARCH_MODE",
+      "SET_SEARCH_KEYWORD",
+      "SET_CURRENT_ASIDE",
+    ]),
     ...mapActions(["search"]),
+    changeAside(iconName) {
+      const result = {
+        bell: AsideName.SEARCH,
+        profile: AsideName.MYPAGE,
+      };
+      if (!result[iconName]) return;
+      this.SET_CURRENT_ASIDE(result[iconName]);
+    },
   },
 };
 </script>

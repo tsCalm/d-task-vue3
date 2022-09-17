@@ -1,3 +1,4 @@
+import { AsideName } from "@/common/enum.type";
 import { stateType } from "./state";
 
 export const mutations = {
@@ -6,5 +7,8 @@ export const mutations = {
   },
   SET_SEARCH_KEYWORD(state: stateType, keyword: string) {
     state.keyword = keyword;
+  },
+  SET_CURRENT_ASIDE(state: stateType, asideName: AsideName) {
+    state.asideName = asideName;
   },
 };
