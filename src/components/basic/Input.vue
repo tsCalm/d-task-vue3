@@ -6,7 +6,7 @@
   <div @click="this.$refs.input.focus()">
     <input
       :disabled="!isFocus"
-      :class="isFocus ? 'input-wrap__input' : 'input-wrap__input-default'"
+      :class="!isFocus ? 'input-wrap__input' : 'input-wrap__input-default'"
       type="text"
       ref="input"
       v-model="keyword"
@@ -76,7 +76,7 @@ export default {
     }
   }
   &__input-default {
-    width: 98%;
+    width: 100%;
     height: 19px;
     font-size: 16px;
     border: none;

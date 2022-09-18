@@ -2,7 +2,7 @@
   <div class="chat">
     <div class="chat__title bold">CHAT</div>
     <div class="chat__content"></div>
-    <Input class="chat-input" :keyword="keyword" :name="'bell'" />
+    <Input class="chat-input" :keyword="keyword" name="send" isFocus="true" />
   </div>
 </template>
 <script>
@@ -38,8 +38,10 @@ export default {
     display: flex;
     align-items: center;
     width: 100%;
-    // max-width: 316px;
     height: 56px;
+    border: 1px solid var(--color-gray-40);
+    border-radius: 5px;
+    padding: 0 16px;
   }
 }
 </style>

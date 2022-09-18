@@ -38,9 +38,6 @@ export default {
       iconNames: ["bell", "profile"],
     };
   },
-  mounted() {
-    console.log(this.keyword);
-  },
   computed: {
     ...mapGetters(["isSearchMode", "keyword"]),
   },
