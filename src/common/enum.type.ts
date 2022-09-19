@@ -16,4 +16,5 @@ export enum AsideName {
   CHAT = "CHAT",
   SEARCH = "SEARCH",
   MYPAGE = "MYPAGE",
+  ALARM = "ALARM",
 }

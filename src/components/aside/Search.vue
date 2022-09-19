@@ -33,6 +33,10 @@ export default {
   },
   computed: {
     ...mapGetters("aside", ["searchCount", "searchList"]),
+    // ...mapMutations("header", ["SET_CURRENT_ASIDE"]),
+  },
+
+  methods: {
     ...mapMutations("header", ["SET_CURRENT_ASIDE"]),
   },
 };

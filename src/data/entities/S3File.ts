@@ -2,8 +2,8 @@ import { IUser } from "./User";
 
 export interface IS3File {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
   title: string;
   color?: string;
   users: IUser[];

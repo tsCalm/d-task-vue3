@@ -1,7 +1,9 @@
+import { IS3File } from "./S3File";
+
 export interface IUser {
   id: number;
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
   socket_id?: string;
   name: string;
   position: string;
@@ -12,5 +14,5 @@ export interface IUser {
   // messages: Message[];
   // cards: Card[];
   // comments: Comment[];
-  // pf_img: S3File;
+  pf_img: IS3File;
 }

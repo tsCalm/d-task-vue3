@@ -1,6 +1,7 @@
 <template>
   <aside>
     <Search v-if="currentAside === AsideName.SEARCH" />
+    <Alarm v-else-if="currentAside === AsideName.ALARM" />
     <MyPage v-else-if="currentAside === AsideName.MYPAGE" />
     <Chat v-else />
   </aside>
@@ -9,6 +10,7 @@
 import Chat from "./aside/Chat.vue";
 import Search from "./aside/Search.vue";
 import MyPage from "./aside/MyPage.vue";
+import Alarm from "./aside/Alarm.vue";
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters } = createNamespacedHelpers("header");
 import { AsideName } from "@/common/enum.type";
@@ -17,6 +19,7 @@ export default {
     Chat,
     Search,
     MyPage,
+    Alarm,
   },
   data() {
     return {

@@ -10,4 +10,10 @@ export const getters = {
   searchList: (state: stateType) => {
     return state.searchList;
   },
+  todayAlarm: (state: stateType) => {
+    return state.todayAlarm;
+  },
+  previousAlarm: (state: stateType) => {
+    return state.previousAlarm;
+  },
 };

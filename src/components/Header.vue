@@ -50,7 +50,7 @@ export default {
     ...mapActions(["search"]),
     changeAside(iconName) {
       const result = {
-        bell: AsideName.SEARCH,
+        bell: AsideName.ALARM,
         profile: AsideName.MYPAGE,
       };
       if (!result[iconName]) return;
