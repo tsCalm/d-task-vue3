@@ -1,5 +1,5 @@
 <template>
-  <button class="default-opt btn-done">
+  <button :class="defaultClassList">
     {{ text }}
     <Loding v-if="loding" class="ml-8" />
     <Icon v-if="isDone" class="ml-8" name="chevron-down" />
@@ -11,6 +11,13 @@ import Icon from "@/components/basic/Icon.vue";
 
 export default {
   props: {
+    classList: {
+      type: Array,
+      required: false,
+      default: () => {
+        return ["btn-default", "lg"];
+      },
+    },
     text: {
       type: String,
       required: true,
@@ -29,6 +36,13 @@ export default {
   components: {
     Loding,
     Icon,
+  },
+  computed: {
+    defaultClassList() {
+      const classList = this.classList || [];
+      classList.push("default-opt");
+      return classList;
+    },
   },
 };
 </script>

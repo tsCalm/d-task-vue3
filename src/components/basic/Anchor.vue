@@ -8,7 +8,7 @@ export default {
   props: {
     href: {
       type: String,
-      required: true,
+      required: false,
     },
     text: {
       type: String,
