@@ -4,6 +4,9 @@
       <div class="title bold">마이페이지</div>
       <Icon name="close" @click="SET_CURRENT_ASIDE('CHAT')" />
     </div>
+    <div class="my-page__body">
+      <Icon name="profile" />
+    </div>
   </div>
 </template>
 <script>
@@ -30,6 +33,9 @@ export default {
       font-size: 18px;
       line-height: 21px;
     }
+  }
+  &__body {
+    padding: 24px 16px;
   }
 }
 </style>
