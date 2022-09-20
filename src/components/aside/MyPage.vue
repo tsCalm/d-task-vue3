@@ -6,15 +6,18 @@
     </div>
     <div class="my-page__body">
       <Icon name="profile" />
+      <Button text="button" />
     </div>
   </div>
 </template>
 <script>
 import Icon from "@/components/basic/Icon.vue";
+import Button from "@/components/basic/Button.vue";
 import { mapGetters, mapMutations, mapActions } from "vuex";
 export default {
   components: {
     Icon,
+    Button,
   },
   methods: {
     ...mapMutations("header", ["SET_CURRENT_ASIDE"]),
