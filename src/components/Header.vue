@@ -3,15 +3,15 @@
     <div class="title">BOARD</div>
     <ul class="svg-container">
       <li class="search">
-        <Input
-          name="search"
+        <!-- <Input
+          iconName="search"
           :isFocus="isSearchMode"
           :keyword="keyword"
           :class="{ 'input-wrap': true, 'input-focus': isSearchMode }"
           @iconClick="SET_SEARCH_MODE(!isSearchMode)"
           @updateKeyword="SET_SEARCH_KEYWORD"
           @keyupEnter="search(keyword)"
-        />
+        /> -->
       </li>
       <li v-for="name in iconNames" @click="changeAside(name)">
         <Icon :name="name" />

@@ -2,7 +2,7 @@
   <div class="chat">
     <div class="chat__title bold">CHAT</div>
     <div class="chat__content"></div>
-    <Input class="chat-input" :keyword="keyword" name="send" isFocus="true" />
+    <!-- <Input class="chat-input" :keyword="keyword" name="send" isFocus="true" /> -->
   </div>
 </template>
 <script>
