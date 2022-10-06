@@ -6,19 +6,17 @@
   <div class="custom-input" @click="this.$refs.input.focus()">
     <label class="custom-input__label" for="input"> {{ label }} </label>
     <div class="custom-input-box">
-      <!-- 
-        :disabled="!isFocus"
-        :class="!isFocus ? 'input-wrap__input' : 'input-wrap__input-default'"
-        ref="input"
-        v-model="keyword"
-        @input="inputEvent"
-        @keyup.enter="keyupEnter"
-      
-        v-if="iconName"
-        :name="iconName"
-      -->
-      <input class="custom-input-box__input" name="input" type="text" />
-      <Icon class="custom-input-box__icon" name="bell" @click="onClick" />
+      <input
+        class="custom-input-box__input"
+        :placeholder="placeHolder"
+        name="input"
+        type="text"
+      />
+      <Icon
+        class="custom-input-box__icon cursor-pointer"
+        name="bell"
+        @click="onClick"
+      />
     </div>
   </div>
 </template>
@@ -44,6 +42,10 @@ export default {
       },
     },
     label: {
+      type: String,
+      required: false,
+    },
+    placeHolder: {
       type: String,
       required: false,
     },
@@ -88,61 +90,45 @@ export default {
     display: flex;
     justify-content: center;
     padding: 18px 16px;
-    border: 1px solid #d5d4d5;
+    border: 1px solid var(--color-gray-20);
     border-radius: 10px;
     // width: 100%;
-
+    // &:focus .custom-input-box {
+    //   background: var(--color-bg-active);
+    // }
     &__input {
       flex: 1;
       font-size: 16px;
-      color: var(--color-gray-20);
+      // color: var(--color-gray-20);
+      color: var(--color-black);
       border: none;
       outline: none;
+
+      &::placeholder {
+        color: var(--color-gray-20);
+        font-size: 16px;
+      }
     }
     &__icon {
       // position: absolute;
       width: 24px;
       height: 24px;
       size: 24px;
-      right: 16px;
+      filter: invert(94%) sepia(0%) saturate(21%) hue-rotate(106deg)
+        brightness(97%) contrast(81%);
+      // right: 16px;
     }
-  }
-  &:hover {
-    &-box {
-      background: red;
-      border: 1px solid #1463fd;
-      /* input/focus */
-
-      filter: drop-shadow(0px 0px 8px rgba(20, 99, 253, 0.2));
-      &__input {
-        color: #000 !important;
-      }
+    &:hover:enabled {
+      border: 1px solid var(--color-primary);
+      box-shadow: (0px 0px 8px rgba(20, 99, 253, 0.2));
+    }
+    &:focus-within,
+    &__input:focus {
+      background: var(--color-bg-active);
+    }
+    &:has(input:disabled) {
+      background: var(--color-gray-5);
     }
   }
 }
-// .input-wrap {
-//   &__input {
-//     width: 100%;
-//     height: 19px;
-//     max-width: 263px;
-//     font-size: 16px;
-//     border: none;
-//     outline: none;
-//     &:disabled {
-//       background: var(--color-white);
-//     }
-//   }
-//   &__input-default {
-//     width: 100%;
-//     height: 19px;
-//     font-size: 16px;
-//     border: none;
-//     outline: none;
-//   }
-//   &__icon {
-//     position: absolute;
-//     size: 24px;
-//     right: 16px;
-//   }
-// }
 </style>
