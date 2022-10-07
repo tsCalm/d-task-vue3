@@ -3,15 +3,21 @@
     keypress 이벤트의 경우 키를 누른 상태로 가만히 있으면 계속 이벤트 발생
     keydown 이벤트의 경우 누른 상태로 키보드에서 손을 때야 이벤트 발생
   -->
-  <div class="custom-input" @click="this.$refs.input.focus()">
+  <div
+    :class="isFocus ? 'custom-input' : 'no-focus'"
+    @click="isFocus ? this.$refs.input.focus() : ''"
+  >
     <label class="custom-input__label" for="input"> {{ label }} </label>
     <div class="custom-input-box">
       <input
         class="custom-input-box__input"
         :placeholder="placeHolder"
+        type="text"
         name="input"
         ref="input"
-        type="text"
+        v-model="keyword"
+        @input="inputEvent"
+        @keyup.enter="keyupEnter"
       />
       <button class="input-btn" @click="onClick">
         <Icon class="custom-input-box__icon" :name="iconName" />
@@ -61,6 +67,7 @@ export default {
   },
   methods: {
     onClick() {
+      console.log("test!");
       this.$emit("iconClick");
     },
     inputEvent(event) {
@@ -74,6 +81,20 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.no-focus {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 4px;
+  & > .custom-input-box {
+    border: 1px solid var(--color-white);
+    .custom-input-box__input {
+      pointer-events: none;
+      width: 100%;
+    }
+  }
+}
 .custom-input {
   width: 100%;
   display: flex;
@@ -125,6 +146,7 @@ export default {
     }
   }
 }
+
 .input-btn:disabled {
   cursor: not-allowed;
 }
