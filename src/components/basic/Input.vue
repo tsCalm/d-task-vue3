@@ -10,13 +10,12 @@
         class="custom-input-box__input"
         :placeholder="placeHolder"
         name="input"
+        ref="input"
         type="text"
       />
-      <Icon
-        class="custom-input-box__icon cursor-pointer"
-        name="bell"
-        @click="onClick"
-      />
+      <button class="input-btn" @click="test">
+        <Icon class="custom-input-box__icon" name="bell" @click="onClick" />
+      </button>
     </div>
   </div>
 </template>
@@ -61,6 +60,9 @@ export default {
     }
   },
   methods: {
+    test() {
+      console.log("test!!");
+    },
     onClick() {
       this.$emit("iconClick");
     },
@@ -103,7 +105,7 @@ export default {
       color: var(--color-black);
       border: none;
       outline: none;
-
+      background: inherit;
       &::placeholder {
         color: var(--color-gray-20);
         font-size: 16px;
@@ -130,5 +132,19 @@ export default {
       background: var(--color-gray-5);
     }
   }
+}
+.input-btn:disabled {
+  cursor: not-allowed;
+}
+.input-btn:active:hover > img {
+  filter: invert(23%) sepia(91%) saturate(3332%) hue-rotate(220deg)
+    brightness(92%) contrast(106%);
+}
+.input-btn:focus > img {
+  filter: invert(24%) sepia(86%) saturate(1814%) hue-rotate(203deg)
+    brightness(87%) contrast(94%);
+}
+.input-btn:focus > .custom-input-box__input {
+  background: var(--color-bg-active);
 }
 </style>
