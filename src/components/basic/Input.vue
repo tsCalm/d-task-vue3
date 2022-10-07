@@ -13,8 +13,8 @@
         ref="input"
         type="text"
       />
-      <button class="input-btn" @click="test">
-        <Icon class="custom-input-box__icon" name="bell" @click="onClick" />
+      <button class="input-btn" @click="onClick">
+        <Icon class="custom-input-box__icon" :name="iconName" />
       </button>
     </div>
   </div>
@@ -60,9 +60,6 @@ export default {
     }
   },
   methods: {
-    test() {
-      console.log("test!!");
-    },
     onClick() {
       this.$emit("iconClick");
     },
@@ -78,6 +75,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .custom-input {
+  width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -94,14 +92,10 @@ export default {
     padding: 18px 16px;
     border: 1px solid var(--color-gray-20);
     border-radius: 10px;
-    // width: 100%;
-    // &:focus .custom-input-box {
-    //   background: var(--color-bg-active);
-    // }
+
     &__input {
       flex: 1;
       font-size: 16px;
-      // color: var(--color-gray-20);
       color: var(--color-black);
       border: none;
       outline: none;
@@ -112,13 +106,11 @@ export default {
       }
     }
     &__icon {
-      // position: absolute;
       width: 24px;
       height: 24px;
       size: 24px;
       filter: invert(94%) sepia(0%) saturate(21%) hue-rotate(106deg)
         brightness(97%) contrast(81%);
-      // right: 16px;
     }
     &:hover:enabled {
       border: 1px solid var(--color-primary);

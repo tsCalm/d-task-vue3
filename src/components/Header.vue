@@ -3,17 +3,20 @@
     <div class="title">BOARD</div>
     <ul class="svg-container">
       <li class="search">
-        <!-- <Input
+        <Input
           iconName="search"
           :isFocus="isSearchMode"
           :keyword="keyword"
-          :class="{ 'input-wrap': true, 'input-focus': isSearchMode }"
           @iconClick="SET_SEARCH_MODE(!isSearchMode)"
           @updateKeyword="SET_SEARCH_KEYWORD"
           @keyupEnter="search(keyword)"
-        /> -->
+        />
       </li>
-      <li v-for="name in iconNames" @click="changeAside(name)">
+      <li
+        class="cursor-pointer"
+        v-for="name in iconNames"
+        @click="changeAside(name)"
+      >
         <Icon :name="name" />
         <div v-if="name === 'bell'" class="dot"></div>
       </li>
@@ -82,20 +85,6 @@ export default {
     width: 100%;
     max-width: 316px;
     height: 56px;
-    & > .input-wrap {
-      border: 1px solid var(--color-white);
-      border-radius: 5px;
-      width: 100%;
-      height: 56px;
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
-    & > .input-focus {
-      border: 1px solid var(--color-primary);
-    }
   }
   & .svg-container {
     width: 100%;
