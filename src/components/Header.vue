@@ -6,7 +6,7 @@
         <Input
           iconName="search"
           :isFocus="isSearchMode"
-          :keyword="keyword"
+          :keyword="keyword || ''"
           @iconClick="SET_SEARCH_MODE(!isSearchMode)"
           @updateKeyword="SET_SEARCH_KEYWORD"
           @keyupEnter="search(keyword)"
